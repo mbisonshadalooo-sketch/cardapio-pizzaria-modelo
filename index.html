@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cardápio - Pizzaria</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>🍕 Pizzaria Exemplo</h1>
+
+    <h2>Pizzas Tradicionais</h2>
+
+    <div class="item">
+      <label>
+        <input type="checkbox" value="Calabresa" data-preco="40">
+        Pizza Calabresa - R$40
+      </label>
+    </div>
+
+    <div class="item">
+      <label>
+        <input type="checkbox" value="Mussarela" data-preco="38">
+        Pizza Mussarela - R$38
+      </label>
+    </div>
+
+    <h2>Bebidas</h2>
+
+    <div class="item">
+      <label>
+        <input type="checkbox" value="Coca-Cola 2L" data-preco="12">
+        Coca-Cola 2L - R$12
+      </label>
+    </div>
+
+    <h3>Total: R$ <span id="total">0</span></h3>
+
+    <button onclick="finalizarPedido()">Finalizar Pedido</button>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
