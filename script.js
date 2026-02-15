@@ -1,36 +1,24 @@
-const checkboxes = document.querySelectorAll("input[type=checkbox]");
-const totalSpan = document.getElementById("total");
+let pedido = [];
 
-checkboxes.forEach(item => {
-  item.addEventListener("change", calcularTotal);
-});
-
-function calcularTotal() {
-  let total = 0;
-
-  checkboxes.forEach(item => {
-    if (item.checked) {
-      total += parseFloat(item.dataset.preco);
-    }
-  });
-
-  totalSpan.textContent = total;
+function addPedido(item) {
+    pedido.push(item);
+    alert("Item adicionado!");
 }
 
 function finalizarPedido() {
-  let mensagem = "Olá, gostaria de fazer o pedido:%0A%0A";
-  let total = 0;
 
-  checkboxes.forEach(item => {
-    if (item.checked) {
-      mensagem += "🍕 " + item.value + "%0A";
-      total += parseFloat(item.dataset.preco);
+    if(pedido.length === 0){
+        alert("Adicione pelo menos 1 item!");
+        return;
     }
-  });
 
-  mensagem += "%0ATotal: R$ " + total;
+    let mensagem = "Olá, gostaria de pedir:%0A%0A";
 
-  const numero = "5599999999999"; // TROCAR PELO NUMERO DA PIZZARIA
+    pedido.forEach(item => {
+        mensagem += "- " + item + "%0A";
+    });
 
-  window.open(`https://wa.me/${numero}?text=${mensagem}`);
+    let numero = "5599999999999"; // TROCAR PELO NÚMERO DA PIZZARIA
+
+    window.open(`https://wa.me/${numero}?text=${mensagem}`);
 }
